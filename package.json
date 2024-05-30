@@ -1,0 +1,29 @@
+{
+  "name": "bhelproxyserver",
+  "version": "1.0.0",
+  "description": "Proxy server made using Node.js for BHEL, Haridwar",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GopalVerma1303/BHELProxyServer.git"
+  },
+  "keywords": [
+    "Proxy",
+    "Node.js",
+    "Server",
+    "Cybersecurity"
+  ],
+  "author": "Gopal Verma",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GopalVerma1303/BHELProxyServer/issues"
+  },
+  "homepage": "https://github.com/GopalVerma1303/BHELProxyServer#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "http-proxy": "^1.18.1"
+  }
+}
