@@ -1,21 +1,24 @@
-# Proxy Server for BHEL Hwr using Node.js
+# Proxy Server for log analysis using Node.js
+
 ## Setup guide:
+
 1. Clone the repo:
    ```bash
-   git clone https://github.com/GopalVerma1303/BHELProxyServer.git
+   git clone https://github.com/GopalVerma1303/LogAnalyser.git
    ```
 2. Open dir:
    ```bash
-   cd BHELProxyServer
+   cd LogAnalyser
    ```
 3. Run server.js
    ```bash
    node server.js
    ```
 4. For MacOS:
-   >Settings > Network > Proxies
-   
-   >Enable both **"Web Proxy"** and **"Secure Web Proxy"**
+
+   > Settings > Network > Proxies
+
+   > Enable both **"Web Proxy"** and **"Secure Web Proxy"**
 
 5. For Windows : 
 
@@ -43,6 +46,7 @@
    >curl -x http://localhost:8080 -L http://google.com  (For testing)
 
 ## Documents:
- - Presentation: https://docs.google.com/presentation/d/1jhQAbinbn-T6ZMLHpl9oEvHwAqGfM5BHatViXGwJdxk/edit?usp=sharing
- - System Design: https://excalidraw.com/#json=MZND09UwzfqrgccYruq09,ZiFnk9dcBHeSaRavY36q3g
- - Report: https://docs.google.com/document/d/11f6d72wv7VarsIh8xeakd8pbVveq_qXHNP-6VX1yYo8/edit?usp=sharing
+
+- Presentation: https://docs.google.com/presentation/d/1jhQAbinbn-T6ZMLHpl9oEvHwAqGfM5BHatViXGwJdxk/edit?usp=sharing
+- System Design: https://excalidraw.com/#json=MZND09UwzfqrgccYruq09,ZiFnk9dcBHeSaRavY36q3g
+- Report: https://docs.google.com/document/d/11f6d72wv7VarsIh8xeakd8pbVveq_qXHNP-6VX1yYo8/edit?usp=sharing

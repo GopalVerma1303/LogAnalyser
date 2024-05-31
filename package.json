@@ -1,7 +1,7 @@
 {
-  "name": "bhelproxyserver",
+  "name": "log-analyser",
   "version": "1.0.0",
-  "description": "Proxy server made using Node.js for BHEL, Haridwar",
+  "description": "Proxy server made using Node.js for log analysis.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -19,9 +19,9 @@
   "author": "Gopal Verma",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/GopalVerma1303/BHELProxyServer/issues"
+    "url": "https://github.com/GopalVerma1303/LogAnalyser/issues"
   },
-  "homepage": "https://github.com/GopalVerma1303/BHELProxyServer#readme",
+  "homepage": "https://github.com/GopalVerma1303/LogAnalyser#readme",
   "dependencies": {
     "express": "^4.19.2",
     "http-proxy": "^1.18.1"
