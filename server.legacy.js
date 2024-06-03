@@ -11,7 +11,9 @@ server.on("connection", (clientToProxySocket) => {
     let isTLSConnection = data.toString().indexOf("CONNECT") !== -1;
     let serverPort = 80;
     let serverAddress;
+    console.log("======================== start: ");
     console.log(data.toString());
+    console.log("======================== end: ");
 
     if (isTLSConnection) {
       serverPort = 443;

@@ -1,10 +1,13 @@
 const net = require("net");
 
+// Create a new server
 const server = net.createServer();
 
+// Handle a new client connection
 server.on("connection", (clientToProxySocket) => {
   console.log("Client connected to proxy");
 
+  // Handle data received from the client
   clientToProxySocket.once("data", (data) => {
     let isTLSConnection = data.toString().indexOf("CONNECT") !== -1;
     let serverPort = 80;
@@ -13,6 +16,7 @@ server.on("connection", (clientToProxySocket) => {
 
     console.log(data.toString());
 
+    // Determine if the connection is TLS
     if (isTLSConnection) {
       serverPort = 443;
       serverAddress = data
@@ -22,6 +26,7 @@ server.on("connection", (clientToProxySocket) => {
         .split(":")[0];
       fullUrl = `https://${serverAddress}`;
     } else {
+      // Parse the HTTP request
       const lines = data.toString().split("\r\n");
       const hostLine = lines.find((line) => line.startsWith("Host: "));
       serverAddress = hostLine.split("Host: ")[1];
@@ -32,7 +37,7 @@ server.on("connection", (clientToProxySocket) => {
     console.log(serverAddress);
     console.log(`Full URL: ${fullUrl}`);
 
-    // Creating a connection from proxy to destination server
+    // Create a connection from the proxy to the destination server
     let proxyToServerSocket = net.createConnection(
       {
         host: serverAddress,
@@ -44,20 +49,25 @@ server.on("connection", (clientToProxySocket) => {
       },
     );
 
+    // Handle the TLS connection
     if (isTLSConnection) {
       clientToProxySocket.write("HTTP/1.1 200 OK\r\n\r\n");
     } else {
+      // Forward the client data to the server
       proxyToServerSocket.write(data);
     }
 
+    // Pipe the client data to the server and vice versa
     clientToProxySocket.pipe(proxyToServerSocket);
     proxyToServerSocket.pipe(clientToProxySocket);
 
+    // Handle errors in the proxy to server connection
     proxyToServerSocket.on("error", (err) => {
       console.log("Proxy to server error");
       console.log(err);
     });
 
+    // Handle errors in the client to proxy connection
     clientToProxySocket.on("error", (err) => {
       console.log("Client to proxy error");
       console.log(err);
@@ -65,15 +75,18 @@ server.on("connection", (clientToProxySocket) => {
   });
 });
 
+// Handle internal server errors
 server.on("error", (err) => {
   console.log("Some internal server error occurred");
   console.log(err);
 });
 
+// Handle the server closing
 server.on("close", () => {
   console.log("Client disconnected");
 });
 
+// Start the server
 server.listen(
   {
     host: "0.0.0.0",
