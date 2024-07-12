@@ -1,4 +1,4 @@
-# Proxy Server for log analysis using Node.js
+# Building Proxy Server for log analysis using Node.js from scratch!
 
 ## Setup guide:
 
